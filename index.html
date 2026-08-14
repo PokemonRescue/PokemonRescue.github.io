@@ -21,6 +21,7 @@
       display: grid;
       grid-template-areas:
         "topbar topbar topbar topbar topbar topbar"
+        "banner banner banner banner banner banner"
         ". . biglogo biglogo . ."
         ". . blurb blurb . ."
         "separator separator separator separator separator separator"
@@ -33,6 +34,7 @@
       @media screen and (max-width: 1000px) {
         grid-template-areas:
           "topbar"
+          "banner"
           "biglogo"
           "blurb"
           "separator"
@@ -124,6 +126,14 @@
         grid-area: success-image;
       }
 
+      .banner {
+        grid-area: banner;
+
+        img {
+          max-width: 80vw;
+        }
+      }
+
 
 
       button {
@@ -199,6 +209,7 @@
       <li><a href="https://x.com/Goosaphone/status/1957174117926383926?s=20"><button>Rescuing Goosaphone's Original Toys ‘R’ Us Mew</button></a></li>
     </ul>
   </section>
+  <a class="banner" href="https://youtu.be/qxwS4Gwowfk?si=RsKunNP8ddaaWvF3"><img src="assets/bannerad.png" alt="Banner advertising 'Rising Stars Week' event."></a>
   <footer><!--TODO: Add footer contents--></footer>
 </body>
 
