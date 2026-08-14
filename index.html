@@ -5,37 +5,200 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon Rescue</title>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      font-family: 'Neue Kabel', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      display: grid;
+      grid-template-areas:
+        "topbar topbar topbar topbar topbar topbar"
+        ". . biglogo biglogo . ."
+        ". . blurb blurb . ."
+        "separator separator separator separator separator separator"
+        "whatis-image whatis-image whatis-image whatis whatis whatis"
+        "beyond beyond beyond beyond-image beyond-image beyond-image"
+        "success-image success-image success-image success success success"
+        "footer footer footer footer footer footer"
+      ;
+
+      @media screen and (max-width: 1000px) {
+        grid-template-areas:
+          "topbar"
+          "biglogo"
+          "blurb"
+          "separator"
+          "whatis-image"
+          "whatis"
+          "beyond-image"
+          "beyond"
+          "success-image"
+          "success"
+          "footer"
+      }
+
+      gap: 2em;
+      max-width: 80%;
+      justify-self: center;
+
+      nav {
+        grid-area: topbar;
+      }
+
+      .biglogo {
+        grid-area: biglogo;
+        max-width: 50vw;
+        justify-self: center;
+
+        @media screen and (max-width: 1000px) {
+          max-width: 80vw;
+        }
+      }
+
+      .blurb {
+        grid-area: blurb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          button {
+            margin: 1em;
+          }
+        }
+      }
+
+      hr {
+        grid-area: separator;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      .whatis {
+        grid-area: whatis;
+      }
+
+      .whatis-image {
+        grid-area: whatis-image;
+      }
+
+      .beyond {
+        grid-area: beyond;
+      }
+
+      .beyond-image {
+        grid-area: beyond-image;
+      }
+
+      .success {
+        grid-area: success;
+
+        ul {
+          list-style: none;
+          padding: 0;
+
+          li {
+            margin: .5em 0;
+          }
+        }
+      }
+
+      .success-image {
+        grid-area: success-image;
+      }
+
+
+
+      button {
+        padding: 1em;
+        border-radius: 2em;
+        border-width: 1px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .grid-image {
+        max-width: 40vw;
+
+        @media screen and (max-width: 1000px) {
+          max-width: 80vw;
+        }
+      }
+
+      footer {
+        grid-area: footer;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Pokémon Rescue</h1>
+  <nav><!--TODO: add content to nav--></nav>
+  <img src="assets/bring_them_home_circle_outlines.png" alt="Pokémon Rescue - Bring Them HOME" class="biglogo">
+  <section class="blurb">
+    <h1>Save Your Pokémon Before Bank Shuts Down</h1>
+    <p>Pokémon Bank closes on February 25th, 2027. After that, there may be no way to bring Pokémon from Generation 3-7 or Generation 1-2 Virtual Console into Pokémon HOME. <a href="https://x.com/RexProfessor/status/2087934278222925985">Please see this Tweet for more info, or continue reading below.</a></p>
+    <div class="buttons">
+      <a href="https://t.co/ABE1nf4pBh"><button>Rescue My Pokémon</button></a>
+      <a href="https://t.co/52jM25psdK"><button>Help Rescue Pokémon</button></a>
+    </div>
+  </section>
   <!--TODO: Update links to direct links instead of t.co. I don't currently have them since it redirects me automatically.-->
-  <a href="https://t.co/52jM25psdK"><button>Apply to help Rescue</button></a>
-  <a href="https://t.co/ABE1nf4pBh"><button>Get Your Pokémon Rescued</button></a>
+
   <hr />
-  <h2>Pokémon Bank is shutting down on February 25th, 2027.</h2>
-  <p>Time is of the essence, as once Bank shuts down, there will be no path for Pokémon from gens 3-7 or gens 1-2 Virtual Console to come to HOME. <a href="https://x.com/RexProfessor/status/2087934278222925985">Please see this Tweet for more info, or continue reading below.</a></p>
-  <h2>What is Pokémon Rescue?</h2>
-  <p>Pokémon Rescue is a fan project run by brothers Professor Rex & Professor Tops that helps trainers bring Pokémon they had captured in older generations of Pokémon games up to the modern-day.</p>
-  <p>Pokémon from as far back as Pokémon Ruby & Sapphire actually have an official pathway to be brought all the way up to the Nintendo Switch and even be used in the recently released Pokémon Champions.<br />
-    So our goal is to help players “rescue” Pokémon they’ve created special memories with from the older games to the newer ones.</p>
-  <p>The biggest hurdle that stops many players from being able to do this themselves is the whole load of hardware that is required to make the move.<br />
-    If someone wanted to transfer a Pokemon from their childhood copy of Emerald they would need, at a minimum, an Nintendo DS or DS Lite, a copy of Pokémon Diamond, Pearl, Platinum, Heartgold or Soulsilver, a Nintendo 3DS with Pokémon Bank, and PokéTransporter installed (both of which are no longer available on new systems through the e-shop), a copy of Pokémon Black, White, Black 2, or White 2, and a device to access Pokémon HOME.<br />
-    In the current market (July 2026) that would cost most players over $500 in systems & game cartridges alone.</p>
-  <p><a href="https://x.com/RexProfessor/status/2011571963534389597?s=20">So we have amassed everything that could ever be needed to rescue any Pokémon from any game that has a pathway to Pokémon HOME.
-    </a><br />
-    Our team then offers trainers help through each step of the transfer process right up to the final jump to Pokémon HOME where the Pokémon can move between switch titles & even be transferred into the mobile version of “Pokémon Champions”</p>
-  <p>The other goal of the Pokémon Rescue Project is to bring players access to old event Pokémon they may have missed out on such as the Wishmaker Jirachi, or Poketopia Magmortar!
-    We have collected everything that could ever be needed to track down nearly every repeatable Pokémon.
-    A list of everything we have collected can be found here: <a href="https://docs.google.com/spreadsheets/d/1qqjJ_psXTvsupA_lPUEYr2zxqp4ou2cIC9ypG9T0HDg/edit?usp=sharing">Everything you need to catch em’ all</a></p>
-  <p>Thus far the Pokémon Rescue Project has travelled to California, Wisconsin, Toronto, and London England but we are looking to seek out many more opportunities to help Pokémon fans bring their cherished Pokémon up to the modern era!</p>
-  <h3>Success Stories:</h3>
-  <ul>
-    <li><a href="https://www.gamesradar.com/games/pokemon/every-pokemon-has-a-history-the-real-life-pokemon-rescue-team-determined-to-save-fans-old-mons-isnt-just-dedicated-to-game-preservation-but-saving-memories/">EUIC 2026 in London England</a></li>
-    <li><a href="https://www.instagram.com/reel/DaMO90XtwzB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">The Rescue of LaineyDragonair’s childhood Pokémon caught by her dad</a></li>
-    <li><a href="https://professorrex.github.io/Rescue/001_01.png">Rescue’s First Rescue</a></li>
-    <li><a href="https://x.com/Goosaphone/status/1957174117926383926?s=20">Goose’s Original Mew from Toys ‘R’ Us</a></li>
-  </ul>
+  <img src="assets/IMG_2992.jpeg" alt="Two boxes full of hardware and software relating to the Pokémon Rescue project." class="whatis-image grid-image">
+  <section class="whatis">
+    <!--TODO: Reduce/condense copy in this section-->
+    <h2>What is Pokémon Rescue?</h2>
+    <p>Pokémon Rescue is a fan project run by brothers Professor Rex & Professor Tops that helps trainers bring Pokémon they had captured in older generations of Pokémon games up to the modern-day.</p>
+    <p>Pokémon from as far back as Pokémon Ruby & Sapphire actually have an official pathway to be brought all the way up to the Nintendo Switch and even be used in the recently released Pokémon Champions.<br />
+      So our goal is to help players “rescue” Pokémon they’ve created special memories with from the older games to the newer ones.</p>
+    <p>The biggest hurdle that stops many players from being able to do this themselves is the whole load of hardware that is required to make the move.<br />
+      If someone wanted to transfer a Pokemon from their childhood copy of Emerald they would need, at a minimum, an Nintendo DS or DS Lite, a copy of Pokémon Diamond, Pearl, Platinum, Heartgold or Soulsilver, a Nintendo 3DS with Pokémon Bank, and PokéTransporter installed (both of which are no longer available on new systems through the e-shop), a copy of Pokémon Black, White, Black 2, or White 2, and a device to access Pokémon HOME.<br />
+      In the current market (July 2026) that would cost most players over $500 in systems & game cartridges alone.</p>
+    <p><a href="https://x.com/RexProfessor/status/2011571963534389597?s=20">So we have amassed everything that could ever be needed to rescue any Pokémon from any game that has a pathway to Pokémon HOME.
+      </a><br />
+      Our team then offers trainers help through each step of the transfer process right up to the final jump to Pokémon HOME where the Pokémon can move between switch titles & even be transferred into the mobile version of “Pokémon Champions”</p>
+  </section>
+  <!--TODO: Replace Jirachi image if desired - this one was just grabbed from Google Images-->
+  <img src="assets/jirachi-placeholder.jpg" alt="A screenshot of the Pokémon Colosseum Bonus Disc displaying the Pokémon Jirachi." class="beyond-image grid-image">
+  <section class="beyond">
+    <h2>Beyond the Rescue</h2>
+    <p>The other goal of the Pokémon Rescue Project is to bring players access to old event Pokémon they may have missed out on such as the Wishmaker Jirachi, or Poketopia Magmortar!
+      We have collected everything that could ever be needed to track down nearly every repeatable Pokémon.
+      A list of everything we have collected can be found here: <a href="https://docs.google.com/spreadsheets/d/1qqjJ_psXTvsupA_lPUEYr2zxqp4ou2cIC9ypG9T0HDg/edit?usp=sharing">Everything you need to catch em’ all</a></p>
+
+  </section>
+  <img src="assets/IMG_3345.jpeg" alt="A Pokémon Fan holding up a Gameboy Advance system displaying the Pokémon Celebi." class="success-image grid-image">
+  <section class="success">
+    <h2>Success Stories:</h2>
+    <p>Thus far the Pokémon Rescue Project has travelled to California, Wisconsin, Toronto, and London England but we are looking to seek out many more opportunities to help Pokémon fans bring their cherished Pokémon up to the modern era!</p>
+    <ul>
+      <li><a href="https://professorrex.github.io/Rescue/001_01.png"><button>Pokémon Rescue’s First Rescue</button></a></li>
+      <li><a href="https://www.instagram.com/reel/DaMO90XtwzB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><button>Rescuing Childhood Pokémon of LaineyDragonair's Father</button></a></li>
+      <li><a href="https://www.gamesradar.com/games/pokemon/every-pokemon-has-a-history-the-real-life-pokemon-rescue-team-determined-to-save-fans-old-mons-isnt-just-dedicated-to-game-preservation-but-saving-memories/"><button>Rescuing Pokémon at EUIC 2026</button></a></li>
+      <li><a href="https://x.com/Goosaphone/status/1957174117926383926?s=20"><button>Rescuing Goosaphone's Original Toys ‘R’ Us Mew</button></a></li>
+    </ul>
+  </section>
+  <footer><!--TODO: Add footer contents--></footer>
 </body>
 
 </html>
