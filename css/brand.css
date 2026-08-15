@@ -1,0 +1,118 @@
+/* Variables */
+
+:root {
+  /* Brand Colors */
+  --color-rescue-red: #E70012;
+  --color-rescue-blue: #14508C;
+  --color-rescue-gray: #C6C5C2;
+  --color-home-green: #0F8748;
+  --color-home-dark-green: #00592A;
+ 
+  /* Neutrals */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+ 
+  /* Gradient Stops */
+  --gradient-grid-start: #112125;
+  --gradient-grid-mid: #1A1A1E;
+  --gradient-grid-end: #121214;
+}
+
+/* Text Styles */
+
+h1 {
+  color: var(--color-white);
+  text-align: center;
+  font-family: "Neue Kabel";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h2 {
+  color: var(--color-white);
+  font-family: 'Neue Kabel', 'Helvetica Neue', sans-serif;;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+p {
+  color: var(--color-white);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+/* Link Styles */
+
+a {
+  text-decoration: underline;
+  color: var(--color-white);
+}
+
+.btn.primary {
+  text-decoration: none;
+
+  display: flex;
+  padding: 16px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  background: var(--color-home-green);
+
+  color: var(--color-white);
+  text-align: center;
+  font-family: "Neue Kabel";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn.primary:hover {
+  background: var(--color-home-dark-green);
+}
+
+.btn.secondary {
+  text-decoration: none;
+
+  display: flex;
+  padding: 16px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+  border: 1px solid var(--color-white);
+
+  color: var(--color-white);
+  text-align: center;
+  font-family: "Neue Kabel";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn.secondary:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+
+}
+
+.btn.tertiary {
+  text-decoration: none;
+
+  display: flex;
+  padding: 8px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 200px;
+}
