@@ -58,12 +58,13 @@
 
       .biglogo {
         grid-area: biglogo;
-        max-width: 50vw;
+        /* max-width: 50vw; */
+        width: 300px;
         justify-self: center;
 
-        @media screen and (max-width: 1000px) {
+        /* @media screen and (max-width: 1000px) {
           max-width: 80vw;
-        }
+        } */
       }
 
       .blurb {
@@ -72,6 +73,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        text-align: center;
 
         .buttons {
           display: flex;
@@ -163,7 +165,7 @@
 
 <body>
   <nav><!--TODO: add content to nav--></nav>
-  <img src="assets/bring_them_home_circle_outlines.png" alt="Pokémon Rescue - Bring Them HOME" class="biglogo">
+  <img src="assets/logos/PokemonRescue_BringThemHome.png" alt="Pokémon Rescue - Bring Them HOME" class="biglogo">
   <section class="blurb">
     <h1>Save Your Pokémon Before Bank Shuts Down</h1>
     <p>Pokémon Bank closes on February 25th, 2027. After that, there may be no way to bring Pokémon from Generation 3-7 or Generation 1-2 Virtual Console into Pokémon HOME. <a href="https://x.com/RexProfessor/status/2087934278222925985">Please see this Tweet for more info, or continue reading below.</a></p>
