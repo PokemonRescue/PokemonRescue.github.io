@@ -6,6 +6,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokémon Rescue</title>
   <style>
+    :root {
+      /* Brand Colors */
+      --color-rescue-red: #E70012;
+      --color-rescue-blue: #14508C;
+      --color-rescue-gray: #C6C5C2;
+      --color-home-green: #0F8748;
+      --color-home-dark-green: #00592A;
+
+      /* Neutrals */
+      --color-white: #fff;
+      --color-black: #333;
+
+      @media screen and (prefers-contrast: more) {
+        --color-white: #FFFFFF;
+        --color-black: #000000;
+      }
+
+      /* Gradient Stops */
+      --gradient-grid-start: #112125;
+      --gradient-grid-mid: #1A1A1E;
+      --gradient-grid-end: #121214;
+
+
+      /*light theme variables from here until the dark media query*/
+
+      --neutral-fg: var(--color-black);
+      --neutral-bg: var(--color-white);
+
+
+      /*explicitly defining theme button colors in case we switch dark or light theme colors for buttons at any point*/
+      --button-bg-accent: var(--color-home-green);
+      --button-bg-accent-hover: var(--color-home-dark-green);
+      --button-fg: var(--color-white);
+      --button-bg: var(--color-black);
+
+
+
+      @media screen and (prefers-color-scheme: dark) {
+
+        --neutral-fg: var(--color-white);
+        --neutral-bg: var(--color-black);
+
+
+        /*explicitly defining theme button colors in case we switch dark or light theme colors for buttons at any point*/
+        --button-bg-accent: var(--color-home-green);
+        --button-bg-accent-hover: var(--color-home-dark-green);
+        --button-fg: var(--color-white);
+        --button-bg: var(--color-black);
+      }
+    }
+
     html {
       box-sizing: border-box;
     }
@@ -18,6 +69,7 @@
 
     body {
       font-family: 'Neue Kabel', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
       display: grid;
       grid-template-areas:
         "topbar topbar topbar topbar topbar topbar"
@@ -54,6 +106,11 @@
 
       nav {
         grid-area: topbar;
+      }
+
+      a {
+        text-decoration: underline;
+        color: var(--neutral-fg);
       }
 
       .biglogo {
@@ -93,6 +150,11 @@
 
       h2 {
         margin: 0;
+      }
+
+      p {
+        font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
       }
 
       .whatis {
@@ -138,15 +200,67 @@
 
 
 
-      button {
-        padding: 1em;
+      .btn {
+        /* padding: 1em;
         border-radius: 2em;
-        border-width: 1px;
+        border-width: 1px; */
+
+        text-decoration: none;
+        display: flex;
+        padding: 1em 1.75em;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 200px;
+        text-align: center;
+        font-weight: 700;
+        font-style: normal;
+        line-height: normal;
 
         &:hover {
           cursor: pointer;
         }
+
+        &.primary {
+          background: var(--button-bg-accent);
+          color: var(--button-fg);
+          border: none;
+
+          &:hover {
+            background: var(--button-bg-accent-hover);
+          }
+        }
+
+        &.secondary {
+          border: 1px solid var(--button-bg);
+          color: var(--button-bg);
+          background: var(--button-fg);
+
+          &:hover {
+            background: var(--button-bg);
+            color: var(--button-fg);
+          }
+        }
+
+
+        &.tertiary {
+          padding: 0.5em 0;
+          text-align: left;
+          border: none;
+          background-color: transparent;
+
+
+          &::after {
+            content: ">"
+          }
+        }
       }
+
+      a:has(.btn) {
+        text-decoration: none;
+      }
+
+
 
       .grid-image {
         max-width: 40vw;
@@ -170,8 +284,8 @@
     <h1>Save Your Pokémon Before Bank Shuts Down</h1>
     <p>Pokémon Bank closes on February 25th, 2027. After that, there may be no way to bring Pokémon from Generation 3-7 or Generation 1-2 Virtual Console into Pokémon HOME. <a href="https://x.com/RexProfessor/status/2087934278222925985">Please see this Tweet for more info, or continue reading below.</a></p>
     <div class="buttons">
-      <a href="https://t.co/ABE1nf4pBh"><button>Rescue My Pokémon</button></a>
-      <a href="https://t.co/52jM25psdK"><button>Help Rescue Pokémon</button></a>
+      <a href="https://t.co/ABE1nf4pBh"><button class="btn primary">Rescue My Pokémon</button></a>
+      <a href="https://t.co/52jM25psdK"><button class="btn secondary">Help Rescue Pokémon</button></a>
     </div>
   </section>
   <!--TODO: Update links to direct links instead of t.co. I don't currently have them since it redirects me automatically.-->
@@ -197,7 +311,16 @@
     <h2>Beyond the Rescue</h2>
     <p>The other goal of the Pokémon Rescue Project is to bring players access to old event Pokémon they may have missed out on such as the Wishmaker Jirachi, or Poketopia Magmortar!
       We have collected everything that could ever be needed to track down nearly every repeatable Pokémon.
-      A list of everything we have collected can be found here: <a href="https://docs.google.com/spreadsheets/d/1qqjJ_psXTvsupA_lPUEYr2zxqp4ou2cIC9ypG9T0HDg/edit?usp=sharing">Everything you need to catch em’ all</a></p>
+      A list of everything we have collected can be found here:
+      <br />
+      <br />
+
+
+      <a href="https://docs.google.com/spreadsheets/d/1qqjJ_psXTvsupA_lPUEYr2zxqp4ou2cIC9ypG9T0HDg/edit?usp=sharing">
+        <button class="btn primary">Everything We Have to Catch Em’ All</button>
+      </a>
+
+    </p>
 
   </section>
   <img src="assets/index/Success-Story.png" alt="A Pokémon Fan holding up a Gameboy Advance system displaying the Pokémon Celebi." class="success-image grid-image">
@@ -205,10 +328,10 @@
     <h2>Success Stories:</h2>
     <p>Thus far the Pokémon Rescue Project has travelled to California, Wisconsin, Toronto, and London England but we are looking to seek out many more opportunities to help Pokémon fans bring their cherished Pokémon up to the modern era!</p>
     <ul>
-      <li><a href="https://professorrex.github.io/Rescue/001_01.png"><button class="btn">Pokémon Rescue’s First Rescue</button></a></li>
-      <li><a href="https://www.instagram.com/reel/DaMO90XtwzB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><button class="btn">Rescuing Childhood Pokémon of LaineyDragonair's Father</button></a></li>
-      <li><a href="https://www.gamesradar.com/games/pokemon/every-pokemon-has-a-history-the-real-life-pokemon-rescue-team-determined-to-save-fans-old-mons-isnt-just-dedicated-to-game-preservation-but-saving-memories/"><button class="btn">Rescuing Pokémon at EUIC 2026</button></a></li>
-      <li><a href="https://x.com/Goosaphone/status/1957174117926383926?s=20"><button class="btn">Rescuing Goosaphone's Original Toys ‘R’ Us Mew</button></a></li>
+      <li><a href="https://professorrex.github.io/Rescue/001_01.png"><button class="btn tertiary">Pokémon Rescue’s First Rescue</button></a></li>
+      <li><a href="https://www.instagram.com/reel/DaMO90XtwzB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="><button class="btn tertiary">Rescuing Childhood Pokémon of LaineyDragonair's Father</button></a></li>
+      <li><a href="https://www.gamesradar.com/games/pokemon/every-pokemon-has-a-history-the-real-life-pokemon-rescue-team-determined-to-save-fans-old-mons-isnt-just-dedicated-to-game-preservation-but-saving-memories/"><button class="btn tertiary">Rescuing Pokémon at EUIC 2026</button></a></li>
+      <li><a href="https://x.com/Goosaphone/status/1957174117926383926?s=20"><button class="btn tertiary">Rescuing Goosaphone's Original Toys ‘R’ Us Mew</button></a></li>
     </ul>
   </section>
   <a class="banner" href="https://youtu.be/qxwS4Gwowfk?si=RsKunNP8ddaaWvF3"><img src="assets/bannerad.png" alt="Banner advertising 'Rising Stars Week' event."></a>
